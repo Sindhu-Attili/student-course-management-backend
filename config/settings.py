@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django_filters',
     'education',
     'drf_spectacular',
+    'corsheaders',
     
 ]
 
@@ -53,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -160,3 +162,6 @@ SIMPLE_JWT = {
 
     'UPDATE_LAST_LOGIN': False,
 }
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
