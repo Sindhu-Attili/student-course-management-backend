@@ -11,6 +11,7 @@ from .views import (
     CourseCompletionViewSet,
     CertificateViewSet,
     UserRegistrationView,
+    DashboardStatsView,
 
 
 )
@@ -27,6 +28,7 @@ router.register('course-completions',CourseCompletionViewSet)
 router.register('certificates',CertificateViewSet)
 urlpatterns = [
     path('register/',UserRegistrationView.as_view(),name='register'),
+    path('dashboard-stats/',DashboardStatsView.as_view(),name='dashboard-stats'),
 ]
 
 urlpatterns += router.urls

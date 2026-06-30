@@ -17,7 +17,8 @@ from .permissions import IsAdminOrReadOnly
 from rest_framework import generics
 from django.contrib.auth.models import User
 from .serializers import UserRegistrationSerializer
-
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
@@ -79,3 +80,13 @@ class CertificateViewSet(viewsets.ModelViewSet):
      queryset = Certificate.objects.all()
      serializer_class = CertificateSerializer
      filterset_fields = ['student','course']
+
+class DashboardStatsView(APIView):
+     def get(self,request):
+          data = {
+               "courses":Course.objects.count(),
+               "assignmemts":Assignment.objects.count(),
+               "payments":Payment.objects.count(),
+               "certificates":Certificate.objects.count(),
+          }
+          return Response(data)
