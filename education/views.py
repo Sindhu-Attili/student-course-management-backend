@@ -85,7 +85,7 @@ class DashboardStatsView(APIView):
      def get(self,request):
           data = {
                "courses":Course.objects.count(),
-               "assignmemts":Assignment.objects.count(),
+               "assignments":Assignment.objects.count(),
                "payments":Payment.objects.count(),
                "certificates":Certificate.objects.count(),
           }
