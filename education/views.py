@@ -1,3 +1,4 @@
+from django_filters import OrderingFilter
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
@@ -53,6 +54,9 @@ class UserRegistrationView(generics.CreateAPIView):
 
 class PaymentViewSet(viewsets.ModelViewSet):
     queryset = Payment.objects.all()
+    search_fields =['transaction_id']
+    filterset_fields= ['payment_status']
+    ordering_fields =['amount','payment_date']
     serializer_class = PaymentSerializer
 
 class AssignmentViewSet(viewsets.ModelViewSet):
@@ -60,7 +64,7 @@ class AssignmentViewSet(viewsets.ModelViewSet):
     serializer_class = AssignmentSerializer
 
     search_fields = ['title']
-    filter_fields = ['course']
+    filterset_fields = ['course']
     ordering_fields = ['due_date','total_marks']
 
 class AssignmentSubmissionViewSet(viewsets.ModelViewSet):
@@ -79,7 +83,9 @@ class CourseCompletionViewSet(viewsets.ModelViewSet):
 class CertificateViewSet(viewsets.ModelViewSet):
      queryset = Certificate.objects.all()
      serializer_class = CertificateSerializer
+     search_fields = ['certificate_number']
      filterset_fields = ['student','course']
+     ordering_fields = ['issued_at', 'certificate_number']
 
 class DashboardStatsView(APIView):
      def get(self,request):
