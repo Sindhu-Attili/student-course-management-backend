@@ -23,7 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--d4!0iknli7v!(ef&f+hfpa87f!8ezav_@jbmr!0_5(8j7@5os'
+SECRET_KEY = os.getenv(
+    "SECRET_KEY",
+    "django-insecure--d4!0iknli7v!(ef&f+hfpa87f!8ezav_@jbmr!0_5(8j7@5os"
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
@@ -165,6 +168,4 @@ SIMPLE_JWT = {
 
     'UPDATE_LAST_LOGIN': False,
 }
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-]
+CORS_ALLOW_ALL_ORIGINS = True
