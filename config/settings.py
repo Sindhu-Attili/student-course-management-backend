@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="mysql://root:SatyaSindhu%4019@localhost:3306/student_course_db",
+        default="postgresql://student_course_db_cezn_user:KtgUASulAbY8fYG3eTP8FGo6FaLoBs9e@dpg-d9fi8dtaeets73c44hqg-a.singapore-postgres.render.com/student_course_db_cezn",
         conn_max_age=600,
     )
 }
