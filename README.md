@@ -1,142 +1,141 @@
 # 🎓 Student Course Management System - Backend
 
-A robust RESTful backend built with **Django** and **Django REST Framework** for the Student Course Management System. It provides secure JWT authentication and REST APIs for managing students, courses, assignments, payments, and certificates.
+<p align="center">
+  <h3 align="center">RESTful Backend for the Student Course Management System</h3>
+
+  <p align="center">
+    A secure and scalable backend built using <b>Django</b> and <b>Django REST Framework</b> with JWT Authentication for managing students, courses, assignments, payments, certificates, and dashboard analytics.
+  </p>
+</p>
 
 ---
 
-## 🚀 Features
+# ✨ Features
 
 - 🔐 JWT Authentication
-- 👨‍🎓 Student Management APIs
-- 📚 Course Management APIs
-- 📝 Assignment Management APIs
-- 💳 Payment Management APIs
-- 🏆 Certificate Management APIs
-- 🔍 Search, Filtering & Ordering Support
-- 📄 API Documentation with Swagger
-- 🗄️ MySQL Database Integration
-- ⚡ RESTful API Design
+- 🛡 Secure Protected APIs
+- 📊 Dashboard Statistics API
+- 📚 Course Management
+- 📝 Assignment Management
+- 💳 Payment Management
+- 🏆 Certificate Management
+- 🔍 Search APIs
+- 📑 Sorting
+- 📄 Pagination
+- 🧩 RESTful API Design
+- ⚡ Modular Architecture
 
 ---
 
-## 🛠️ Tech Stack
-
-### Backend
+# 🛠 Tech Stack
 
 - Python
 - Django
-- Django REST Framework
-- Simple JWT
+- Django REST Framework (DRF)
 - MySQL
-- django-filter
-- drf-spectacular
+- Simple JWT
+- CORS Headers
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
-```
-Student-Course-Management-System/
+```text
+Student Course Management System
 │
-├── config/
-│   ├── settings.py
-│   ├── urls.py
-│   └── ...
-│
-├── education/
+├── api/
 │   ├── migrations/
+│   ├── admin.py
 │   ├── models.py
 │   ├── serializers.py
 │   ├── views.py
 │   ├── urls.py
-│   ├── permissions.py
-│   └── utils.py
+│   └── permissions.py
+│
+├── student_course_management/
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
 │
 ├── manage.py
 ├── requirements.txt
-└── db.sqlite3 / MySQL
+└── README.md
 ```
 
 ---
 
-## 🔄 Backend Request Flow
+# 📡 API Endpoints
 
-```
-Client (React)
-       │
-       ▼
-Axios Request
-       │
-       ▼
-Django URL
-       │
-       ▼
-ViewSet
-       │
-       ▼
-Serializer
-       │
-       ▼
-MySQL Database
-       │
-       ▼
-JSON Response
-       │
-       ▼
-React Frontend
-```
+## Authentication
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| POST | `/api/token/` | Login |
+| POST | `/api/token/refresh/` | Refresh Access Token |
 
 ---
 
-## 📡 Available APIs
+## Dashboard
 
-### Authentication
-
-- POST `/api/token/`
-- POST `/api/token/refresh/`
-
-### Students
-
-- GET `/api/students/`
-- POST `/api/students/`
-- PUT `/api/students/{id}/`
-- DELETE `/api/students/{id}/`
-
-### Courses
-
-- GET `/api/courses/`
-- POST `/api/courses/`
-- PUT `/api/courses/{id}/`
-- DELETE `/api/courses/{id}/`
-
-### Assignments
-
-- GET `/api/assignments/`
-- POST `/api/assignments/`
-- PUT `/api/assignments/{id}/`
-- DELETE `/api/assignments/{id}/`
-
-### Payments
-
-- GET `/api/payments/`
-- POST `/api/payments/`
-- PUT `/api/payments/{id}/`
-- DELETE `/api/payments/{id}/`
-
-### Certificates
-
-- GET `/api/certificates/`
-- POST `/api/certificates/`
-- PUT `/api/certificates/{id}/`
-- DELETE `/api/certificates/{id}/`
+| Method | Endpoint |
+|---------|----------|
+| GET | `/api/dashboard-stats/` |
 
 ---
 
-## 🔐 Authentication
+## Courses
 
-The API uses **JWT (JSON Web Token)** authentication.
+| Method | Endpoint |
+|---------|----------|
+| GET | `/api/courses/` |
+| POST | `/api/courses/` |
+| PUT | `/api/courses/{id}/` |
+| DELETE | `/api/courses/{id}/` |
 
-Example Authorization Header:
+---
+
+## Assignments
+
+| Method | Endpoint |
+|---------|----------|
+| GET | `/api/assignments/` |
+| POST | `/api/assignments/` |
+| PUT | `/api/assignments/{id}/` |
+| DELETE | `/api/assignments/{id}/` |
+
+---
+
+## Payments
+
+| Method | Endpoint |
+|---------|----------|
+| GET | `/api/payments/` |
+| POST | `/api/payments/` |
+| PUT | `/api/payments/{id}/` |
+| DELETE | `/api/payments/{id}/` |
+
+---
+
+## Certificates
+
+| Method | Endpoint |
+|---------|----------|
+| GET | `/api/certificates/` |
+| POST | `/api/certificates/` |
+| PUT | `/api/certificates/{id}/` |
+| DELETE | `/api/certificates/{id}/` |
+
+---
+
+# 🔐 Authentication
+
+This project uses **JWT (JSON Web Token)** Authentication.
+
+After successful login:
+
+- Access Token is generated
+- Refresh Token is generated
+- Protected endpoints require:
 
 ```text
 Authorization: Bearer <access_token>
@@ -144,17 +143,21 @@ Authorization: Bearer <access_token>
 
 ---
 
-## 📖 API Documentation
+# 🗄 Database
 
-Swagger/OpenAPI documentation is available at:
+The backend uses **MySQL** as the primary database.
 
-```
-http://127.0.0.1:8000/api/schema/swagger-ui/
-```
+Main Models:
+
+- Student
+- Course
+- Assignment
+- Payment
+- Certificate
 
 ---
 
-## 🚀 Getting Started
+# 🚀 Installation
 
 ### Clone the repository
 
@@ -162,19 +165,13 @@ http://127.0.0.1:8000/api/schema/swagger-ui/
 git clone https://github.com/Sindhu-Attili/Student-Course-Management-System.git
 ```
 
-### Navigate into the project
-
-```bash
-cd Student-Course-Management-System
-```
-
-### Create a Virtual Environment
+### Create Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-### Activate the Environment
+### Activate Virtual Environment
 
 Windows
 
@@ -182,7 +179,7 @@ Windows
 venv\Scripts\activate
 ```
 
-Linux/macOS
+Linux / macOS
 
 ```bash
 source venv/bin/activate
@@ -200,75 +197,44 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-### Start the Server
+### Run Development Server
 
 ```bash
 python manage.py runserver
 ```
 
-The backend will start at:
+---
 
-```
-http://127.0.0.1:8000/
-```
+# 📦 Project Modules
+
+- Authentication
+- Dashboard
+- Courses
+- Assignments
+- Payments
+- Certificates
 
 ---
 
-## 🗄️ Database
+# 🔮 Future Enhancements
 
-This project uses **MySQL** as its primary database.
-
-Database configuration is managed through:
-
-```
-config/settings.py
-```
-
----
-
-## 🔗 Frontend Repository
-
-The frontend is built using React.js.
-
-➡️ **Frontend Repository:**
-
-https://github.com/Sindhu-Attili/Student-Course-Management-Frontend
+- 👤 User Profile APIs
+- 📤 File Upload APIs
+- 📊 Analytics APIs
+- 📈 Reports
+- 🔔 Notification APIs
+- 👥 Role-Based Access Control
 
 ---
 
-## 📌 Project Status
+# 👨‍💻 Author
 
-🚧 **Currently Under Development**
+**Satya Sindhu**
 
-Completed:
+Python Full Stack Developer
 
-- JWT Authentication
-- Student APIs
-- Course APIs
-- Assignment APIs
-- Payment APIs
-- Certificate APIs
-- Search
-- Filtering
-- Ordering
-- Swagger Documentation
-
-Upcoming:
-
-- Dashboard Statistics API
-- Student Profile API
-- Performance Improvements
-- Deployment
+GitHub: https://github.com/Sindhu-Attili
 
 ---
 
-## 👨‍💻 Author
-
-**Sindhu Attili**
-
-GitHub:
-https://github.com/Sindhu-Attili
-
----
-
-⭐ If you found this project useful, consider giving it a star!
+⭐ If you found this project useful, consider giving it a star.
