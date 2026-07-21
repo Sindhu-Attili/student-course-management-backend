@@ -168,4 +168,6 @@ SIMPLE_JWT = {
 
     'UPDATE_LAST_LOGIN': False,
 }
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://student-course-management-frontend-5xh1.onrender.com",
+]
