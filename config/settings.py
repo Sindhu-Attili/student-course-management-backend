@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="mysql://root:SatyaSindhu@19@localhost:3306/student_course_db",
+        default="mysql://root:SatyaSindhu%4019@localhost:3306/student_course_db",
         conn_max_age=600,
     )
 }
